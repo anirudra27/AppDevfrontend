@@ -1,6 +1,6 @@
-import { Container } from "@mui/material";
+import { CircularProgress, Container, LinearProgress } from "@mui/material";
 
-const BlogsPage = () => {
+const LoadingPage = () => {
   return (
     <Container
       sx={{
@@ -11,9 +11,9 @@ const BlogsPage = () => {
         alignItems: "center",
       }}
     >
-      BlogsPage
+      <CircularProgress size={50} />
     </Container>
   );
 };
 
-export default BlogsPage;
+export default LoadingPage;

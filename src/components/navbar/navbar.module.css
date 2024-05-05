@@ -1,0 +1,13 @@
+.container{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px 0 50px;
+    margin-bottom: 60px;
+}
+
+.logo{
+    font-size: 25px;
+    font-weight: 600;
+}
