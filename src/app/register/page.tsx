@@ -10,7 +10,7 @@ import {
   Paper,
 } from "@mui/material";
 import Link from "next/link";
-import { RegisterCommon } from "../../common/helper/register.request";
+import { RegisterCommon } from "../common/helper/register.request";
 
 
 const RegisterPage = () => {
