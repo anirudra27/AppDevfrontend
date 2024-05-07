@@ -12,6 +12,7 @@ export async function RegisterCommon(dataToSend: RegisterProps) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
     },
     body: JSON.stringify(dataToSend),
   });

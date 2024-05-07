@@ -1,3 +1,4 @@
+
 "use client";
 import { CustomError } from "@/app/common/errors/custom.error";
 import { RegisterCommon } from "@/app/common/helper/register.request";
@@ -5,10 +6,13 @@ import {
   ReturnProps,
   validateForm,
 } from "@/app/common/helper/register.validation";
+import { VisibilityOff, Visibility } from "@mui/icons-material";
 import {
   Box,
   Button,
   Container,
+  IconButton,
+  InputAdornment,
   Paper,
   TextField,
   Typography,
@@ -23,15 +27,22 @@ const RegisterPage = () => {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [errorMessage, setErrorMessage] = useState("");
   const [nameEmptyError, setNameEmptyError] = useState("");
   const [emailEmptyError, setEmailEmptyError] = useState("");
   const [userNameEmptyError, setUserNameEmptyError] = useState("");
   const [passwordEmptyError, setPasswordEmptyError] = useState("");
+
   const [isNameEmpty, setIsNameEmpty] = useState(false);
   const [isUserNameEmpty, setIsUserNameEmpty] = useState(false);
   const [isEmailEmpty, setIsEmailEmpty] = useState(false);
   const [isPasswordEmpty, setIsPasswordEmpty] = useState(false);
+
+  const [showPassword, setShowPassword] = useState(false);
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   const router = useRouter();
 
@@ -74,9 +85,7 @@ const RegisterPage = () => {
           email,
           password,
         });
-        console.log("This is Response: ", response.Data);
-        // Redirect to Login page
-        router.push("/login");
+        console.log("This is Response: ", response.Message);
       }
     } catch (error) {
       if (error instanceof CustomError) {
@@ -95,6 +104,8 @@ const RegisterPage = () => {
       component="main"
       maxWidth="xl"
       sx={{
+        paddingTop: "60px",
+        minHeight: "100vh",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "stretch",
@@ -140,11 +151,11 @@ const RegisterPage = () => {
         <Paper
           elevation={0}
           sx={{
-            border: "1px solid #cccccc",
+            border: "2px solid #cccccc",
             p: 7,
             maxWidth: 450,
             margin: "0 auto",
-            backgroundColor: "#f1efea",
+            backgroundColor: "#f4f4f4",
           }}
         >
           <Box
@@ -210,12 +221,25 @@ const RegisterPage = () => {
             label="Password"
             error={isPasswordEmpty}
             helperText={isPasswordEmpty ? passwordEmptyError : ""}
-            type="password"
+            type={showPassword ? "text" : "password"}
             onChange={(e) => {
               setPassword(e.target.value);
               if (e.target.value.trim() !== "") {
                 setPasswordEmptyError("");
               }
+            }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              ),
             }}
           />
           <Button
@@ -225,14 +249,14 @@ const RegisterPage = () => {
             variant="contained"
             onClick={HandleSignup}
             sx={{
-              mt: 4,
+              mt: 6,
               backgroundColor: "black",
               "&:hover": { backgroundColor: "#303030" },
             }}
           >
             Create account
           </Button>
-          <Typography variant="body2" sx={{ mt: 5 }}>
+          <Typography variant="body2" sx={{ mt: 4 }}>
             Dont have an account?{" "}
             <Link style={{ color: "blue" }} href="/login">
               Sign in

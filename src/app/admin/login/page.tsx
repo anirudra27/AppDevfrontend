@@ -1,6 +1,6 @@
 "use client";
 import { CustomError } from "@/app/common/errors/custom.error";
-import { Login } from "@/app/common/helper/login.request";
+import { AdminLogin } from "@/app/common/helper/admin.login.request";
 import {
   ReturnProps,
   validateForm,
@@ -24,7 +24,6 @@ import { VisibilityOff, Visibility } from "@mui/icons-material";
 
 const LoginPage = () => {
   const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -48,11 +47,7 @@ const LoginPage = () => {
     setIsPasswordEmpty(false);
 
     try {
-      const validatedForm: ReturnProps = validateForm(
-        userName,
-        email,
-        password
-      );
+      const validatedForm: ReturnProps = validateForm(userName, null, password);
       if (validatedForm.isEmpty) {
         if (validatedForm.forUserName && validatedForm.forEmail) {
           setIsUserNameEmpty(true);
@@ -63,28 +58,16 @@ const LoginPage = () => {
           setPasswordEmptyError(validatedForm.forPassword);
         }
       } else {
-        var response;
-        if (email === "") {
-          response = await Login({
-            userName,
-            email: null,
-            password,
-          });
-          console.log("This is Response: ", response.Data);
-        }
-        if (userName === "") {
-          response = await Login({
-            userName: null,
-            email,
-            password,
-          });
-          console.log("This is Response: ", response.Data);
-        }
+        const response = await AdminLogin({
+          userName,
+          password,
+        });
+        console.log("This is Response: ", response.Data);
         // Save to cookie.
         Cookies.set("Token", response.Data);
 
         // Redirect to Home page
-        router.push("/");
+        router.push("/admin/dashboard");
       }
     } catch (error) {
       if (error instanceof CustomError) {
@@ -103,33 +86,9 @@ const LoginPage = () => {
       component="main"
       maxWidth="xl"
       sx={{
-        paddingTop: "60px",
-        minHeight: "80vh",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "stretch",
+        alignItems: "center",
       }}
     >
-      <Box
-        sx={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          paddingLeft: 15,
-        }}
-      >
-        <Typography variant="h2" gutterBottom sx={{ marginBottom: 2 }}>
-          Sign in to your
-        </Typography>
-        <Typography
-          variant="h2"
-          gutterBottom
-          sx={{ marginTop: 2, marginBottom: 2 }}
-        >
-          Bislerium Account
-        </Typography>
-      </Box>
       <Box
         sx={{
           flex: 1,
@@ -143,11 +102,11 @@ const LoginPage = () => {
         <Paper
           elevation={0}
           sx={{
-            border: "2px solid #cccccc",
+            border: "1px solid #cccccc",
             p: 7,
             maxWidth: 450,
             margin: "0 auto",
-            backgroundColor: "#f4f4f4",
+            backgroundColor: "#f1efea",
           }}
         >
           <Box
@@ -156,7 +115,7 @@ const LoginPage = () => {
             }}
           >
             <Typography variant="h4" sx={{ mb: 2 }}>
-              Sign in
+              Admin Sign In
             </Typography>
           </Box>
           {errorMessage}
@@ -165,16 +124,11 @@ const LoginPage = () => {
             required
             fullWidth
             variant="standard"
-            label="Username or Email"
+            label="Username"
             error={isUserNameEmpty}
             helperText={isUserNameEmpty ? userNameEmptyError : ""}
             onChange={(e) => {
-              if (e.target.value.includes("@")) {
-                setEmail(e.target.value);
-              } else {
-                setEmail("");
-                setUserName(e.target.value);
-              }
+              setUserName(e.target.value);
               if (e.target.value.trim() !== "") {
                 setUserNameEmptyError("");
               }
@@ -209,11 +163,6 @@ const LoginPage = () => {
               ),
             }}
           />
-          <Typography variant="body2" sx={{ mt: 1, textAlign: "right" }}>
-            <Link style={{ color: "blue" }} href="/forgot-password">
-              Forgot Password?
-            </Link>
-          </Typography>
           <Button
             type="submit"
             disableElevation
@@ -221,19 +170,13 @@ const LoginPage = () => {
             variant="contained"
             onClick={HandleLogin}
             sx={{
-              mt: 4,
+              mt: 6,
               backgroundColor: "black",
               "&:hover": { backgroundColor: "#303030" },
             }}
           >
             Sign In
           </Button>
-          <Typography variant="body2" sx={{ mt: 4 }}>
-            Dont have an account?{" "}
-            <Link style={{ color: "blue" }} href="/register">
-              Register
-            </Link>
-          </Typography>
         </Paper>
       </Box>
     </Container>
