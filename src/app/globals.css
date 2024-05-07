@@ -1,8 +1,9 @@
 :root{
-  --bg: #f4f4f4;
-  --text: Black;
-  --btn: Black;
-  --btn-text: White;
+    --bg: #feffff;
+    --text: #17252a;
+    --sec: #17252a;
+    --btn: #3aafa9;
+    --btn-text:#def2f1;
 }
 
 *{
@@ -24,10 +25,9 @@ a{
 }
 
 .container{
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-self: center;
-  flex-direction: column;
-  justify-content: space-between;
+    width: calc(100vw );
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
