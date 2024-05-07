@@ -105,7 +105,6 @@ const RegisterPage = () => {
       maxWidth="xl"
       sx={{
         paddingTop: "60px",
-        minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "stretch",
@@ -125,7 +124,7 @@ const RegisterPage = () => {
           justifyContent: "center",
           paddingLeft: 10,
           backgroundImage: `url('bg2.jpg')`,
-          backgroundSize: "cover", // Cover the entire container
+          backgroundSize: "cover",
         backgroundPosition: "center",
         }}
       >

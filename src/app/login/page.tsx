@@ -104,7 +104,6 @@ const LoginPage = () => {
       maxWidth="xl"
       sx={{
         paddingTop: "60px",
-        minHeight: "80vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "stretch",
@@ -124,9 +123,8 @@ const LoginPage = () => {
           justifyContent: "center",
           paddingLeft: 10,
           backgroundImage: `url('bg1.jpg')`,
-          backgroundSize: "cover", // Cover the entire container
+          backgroundSize: "cover", 
         backgroundPosition: "center",
-          // backgroundColor:"#3aafa9"
         }}
       >
         <Typography variant="h2" gutterBottom sx={{ marginBottom: 2,
@@ -141,7 +139,6 @@ const LoginPage = () => {
           flexDirection: "column",
           justifyContent: "center",
           textAlign: "center",
-          paddingRight: 0,
         }}
       >
         <Paper
