@@ -55,7 +55,6 @@ const BlogsPage = () => {
     <Container
       maxWidth="xl"
       sx={{
-        paddingTop: "60px",
         display: "flex",
         flexDirection: "column",
         gap: 5,
@@ -102,8 +101,8 @@ const BlogsPage = () => {
       </Box>
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "row",
+          display: "grid",
+          gridTemplateColumns:"1fr 1fr 1fr 1fr",
           justifyContent: "center",
           gap: 3,
           flexWrap: "wrap",
@@ -114,26 +113,23 @@ const BlogsPage = () => {
         {getPageCards().map((card, index) => (
           <Card
             sx={{
-              bgcolor: "#1a1a1a",
-              color: "white",
-              maxHeight: 300,
-              maxWidth: 240,
-              borderRadius: 1,
-              "&:hover": {
-                transform: "scale(1.02)",
-                bgcolor: "#f2f2f2",
-                color: "black",
-              },
+              maxWidth: 300, flex: 1, 
+                margin: "8px 8px",  
+                backgroundColor:"#ffffff",
+                minWidth: "200px",
+                "&:hover": {
+                  transform: "scale(1.02)",
+                  opacity:"80%"
+                },
               transition: "all 0.2s ease-in-out",
             }}
-            elevation={0}
           >
             <CardActionArea disableRipple>
               <CardMedia
                 component="img"
-                height="200"
+                height="300px"
                 image={card.image}
-                alt="green iguana"
+                alt={card.title}
               />
               <CardContent>
                 <Typography gutterBottom variant="body1" component="div">
@@ -159,8 +155,7 @@ const BlogsPage = () => {
           count={totalPages}
           page={currentPage}
           onChange={handlePageChange}
-          variant="outlined"
-          shape="rounded"
+          size="small"
         />
       </Box>
     </Container>

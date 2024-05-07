@@ -244,7 +244,6 @@ const RegisterPage = () => {
             onClick={HandleSignup}
             sx={{
               mt: 6,
-              backgroundColor: "black",
               "&:hover": { backgroundColor: "#303030" },
               borderRadius: 100,
               backgroundColor: "#3aafa9"
