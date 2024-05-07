@@ -22,14 +22,18 @@
   touch-action: manipulation;
 }
 
-.button:hover,
-.button:focus-visible{
-  --_p: 0px;
-  outline-color: var(--color);
-  outline-offset: .05em;
+.popular_blogs{
+  margin-bottom: 48px;
 }
 
-.button:active {
-  background: var(--color);
-  color: #fff;
+.popular_blogs .content{
+  margin-top: 24px;
+  
+}
+
+.cardContainer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  overflow-x: scroll;
 }

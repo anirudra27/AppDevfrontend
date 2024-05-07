@@ -104,30 +104,32 @@ const LoginPage = () => {
       maxWidth="xl"
       sx={{
         paddingTop: "60px",
-        minHeight: "80vh",
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "stretch",
+
       }}
     >
+      <Box  sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "stretch",
+      }}>
       <Box
         sx={{
           flex: 1,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          paddingLeft: 15,
+          paddingLeft: 10,
+          backgroundImage: `url('bg1.jpg')`,
+          backgroundSize: "cover", 
+        backgroundPosition: "center",
         }}
       >
-        <Typography variant="h2" gutterBottom sx={{ marginBottom: 2 }}>
+        <Typography variant="h2" gutterBottom sx={{ marginBottom: 2,
+        color:"transparent" }}>
           Sign in to your
-        </Typography>
-        <Typography
-          variant="h2"
-          gutterBottom
-          sx={{ marginTop: 2, marginBottom: 2 }}
-        >
-          Bislerium Account
         </Typography>
       </Box>
       <Box
@@ -137,7 +139,6 @@ const LoginPage = () => {
           flexDirection: "column",
           justifyContent: "center",
           textAlign: "center",
-          paddingRight: 0,
         }}
       >
         <Paper
@@ -145,9 +146,7 @@ const LoginPage = () => {
           sx={{
             border: "2px solid #cccccc",
             p: 7,
-            maxWidth: 450,
-            margin: "0 auto",
-            backgroundColor: "#f4f4f4",
+            backgroundColor: "#f0efea",
           }}
         >
           <Box
@@ -210,7 +209,7 @@ const LoginPage = () => {
             }}
           />
           <Typography variant="body2" sx={{ mt: 1, textAlign: "right" }}>
-            <Link style={{ color: "blue" }} href="/forgot-password">
+            <Link style={{ color: "#3aafa9" }} href="/forgot-password">
               Forgot Password?
             </Link>
           </Typography>
@@ -222,19 +221,21 @@ const LoginPage = () => {
             onClick={HandleLogin}
             sx={{
               mt: 4,
-              backgroundColor: "black",
               "&:hover": { backgroundColor: "#303030" },
+              borderRadius: 100,
+              backgroundColor: "#3aafa9"
             }}
           >
             Sign In
           </Button>
           <Typography variant="body2" sx={{ mt: 4 }}>
             Dont have an account?{" "}
-            <Link style={{ color: "blue" }} href="/register">
+            <Link style={{ color: "#3aafa9" }} href="/register">
               Register
             </Link>
           </Typography>
         </Paper>
+      </Box>
       </Box>
     </Container>
   );

@@ -12,9 +12,17 @@
     cursor: pointer;    
     font-weight: 500;
     border: none;
-    border-radius: 4px;
     font-size: 14px;
+    border-radius:200px;
+
+    transition: all 0.4s;
 }
+
+.login:hover{
+    opacity: 80%;
+    
+}
+
 
 .user{
     background-color: var(--btn);

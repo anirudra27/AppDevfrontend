@@ -105,38 +105,33 @@ const RegisterPage = () => {
       maxWidth="xl"
       sx={{
         paddingTop: "60px",
-        minHeight: "100vh",
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "stretch",
       }}
     >
+      <Box
+         sx={{
+           display: "flex",
+           justifyContent: "center",
+           alignItems: "stretch",
+         }}>
       <Box
         sx={{
           flex: 1,
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          paddingLeft: 15,
+          paddingLeft: 10,
+          backgroundImage: `url('bg2.jpg')`,
+          backgroundSize: "cover",
+        backgroundPosition: "center",
         }}
       >
-        <Typography variant="h2" gutterBottom sx={{ marginBottom: 2 }}>
-          Create an Account
+        <Typography variant="h2" gutterBottom sx={{ marginBottom: 2,color:"transparent" }}>
+          Signup to your
         </Typography>
-        <Typography
-          variant="h2"
-          gutterBottom
-          sx={{ marginTop: 2, marginBottom: 2 }}
-        >
-          & Explore the
-        </Typography>
-        <Typography
-          variant="h2"
-          gutterBottom
-          sx={{ marginTop: 2, marginBottom: 2 }}
-        >
-          World of Blogs
-        </Typography>
+
       </Box>
       <Box
         sx={{
@@ -154,8 +149,7 @@ const RegisterPage = () => {
             border: "2px solid #cccccc",
             p: 7,
             maxWidth: 450,
-            margin: "0 auto",
-            backgroundColor: "#f4f4f4",
+            backgroundColor: "#f1efea",
           }}
         >
           <Box
@@ -252,17 +246,20 @@ const RegisterPage = () => {
               mt: 6,
               backgroundColor: "black",
               "&:hover": { backgroundColor: "#303030" },
+              borderRadius: 100,
+              backgroundColor: "#3aafa9"
             }}
           >
             Create account
           </Button>
           <Typography variant="body2" sx={{ mt: 4 }}>
             Dont have an account?{" "}
-            <Link style={{ color: "blue" }} href="/login">
+            <Link style={{ color: "#3aafa9" }} href="/login">
               Sign in
             </Link>
           </Typography>
         </Paper>
+      </Box>
       </Box>
     </Container>
   );
