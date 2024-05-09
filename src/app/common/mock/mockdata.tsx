@@ -72,7 +72,17 @@ export const cardsData = [
     {
       title: "The history of jazz music: A fascinating journey.",
       author: "David Wilson",
+      image: "mock-data/3.jpg",
+    },
+    {
+      title: "The history of jazz music: A fascinating journey.",
+      author: "David Wilson",
       image: "mock-data/example-blog-image.jpg",
+    },
+    {
+      title: "The history of jazz music: A fascinating journey.",
+      author: "David Wilson",
+      image: "mock-data/3.jpg",
     },
     {
       title: "The history of jazz music: A fascinating journey.",
@@ -87,17 +97,7 @@ export const cardsData = [
     {
       title: "The history of jazz music: A fascinating journey.",
       author: "David Wilson",
-      image: "mock-data/example-blog-image.jpg",
-    },
-    {
-      title: "The history of jazz music: A fascinating journey.",
-      author: "David Wilson",
-      image: "mock-data/example-blog-image.jpg",
-    },
-    {
-      title: "The history of jazz music: A fascinating journey.",
-      author: "David Wilson",
-      image: "mock-data/example-blog-image.jpg",
+      image: "mock-data/3.jpg",
     },
     {
       title: "The history of jazz music: A fascinating journey.",
